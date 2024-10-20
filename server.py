@@ -1,4 +1,5 @@
 import socket
+import time
 
 # We use headers to inform client about the size of data etc
 HEADER_SIZE = 10
@@ -14,3 +15,9 @@ while True:
     msg = f'{len(msg):<{HEADER_SIZE}}' + msg
     clientsocket.send(bytes(msg, "utf-8"))
     # clientsocket.close()
+
+    while True:
+        time.sleep(3)
+        msg = f"The time is : {time.time()}"
+        msg = f'{len(msg):<{HEADER_SIZE}}' + msg
+        clientsocket.send(bytes(msg, "utf-8"))

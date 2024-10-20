@@ -15,7 +15,7 @@ while True:
             print(f"New Message Length: {msg[:HEADER_SIZE]}") 
             msglen = int(msg[:HEADER_SIZE])
             new_msg = False
-            print(msg.decode('utf-8'))
+            
         full_msg += msg.decode('utf-8')
 
         if len(full_msg)-HEADER_SIZE == msglen:
